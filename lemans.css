@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@300;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+#video-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.3) contrast(1.1);
+}
+
+/* Header y Navegación */
+.menu {
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(10, 10, 10, 0.95);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5em;
+  color: #FFD700;
+  text-decoration: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+input#menu {
+  display: none;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #FFD700;
+}
+
+/* Sección principal */
+.header-content {
+  text-align: center;
+  margin-top: 25vh;
+  padding: 2rem;
+  animation: fadeUp 1.5s ease;
+}
+
+.header-content h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+.header-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Contenido Le Mans */
+.LeMans {
+  padding: 4rem 2rem;
+  background-color: rgba(20, 20, 20, 0.95);
+}
+
+.LeMans h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #FFD700;
+  margin-bottom: 2rem;
+}
+
+.LeMans .txt-p {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: #bbb;
+  font-size: 1rem;
+}
+
+/* Artículos informativos */
+.infolemans {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.infolemans div {
+  background-color: #121212;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #333;
+  box-shadow: 0 0 10px #000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.infolemans img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.infolemans h4 {
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+
+.infolemans p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Efecto visible */
+.reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Animaciones clave */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #111;
+    width: 100%;
+    display: none;
+    padding: 1rem;
+  }
+
+  input#menu:checked ~ .navbar ul {
+    display: flex;
+  }
+}
+
