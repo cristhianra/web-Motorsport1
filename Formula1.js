@@ -1,22 +1,26 @@
-// Menú hamburguesa toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navbar = document.getElementById('navbar');
+// El checkbox controla el menú móvil mediante la regla #menu:checked del CSS.
+const menu = document.getElementById('menu');
+const navbar = document.querySelector('.navbar');
 
-menuToggle.addEventListener('click', () => {
-  navbar.classList.toggle('active');
-});
+if (menu && navbar) {
+  navbar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.checked = false;
+    });
+  });
+}
 
 // Desplazamiento suave al hacer clic en anclas internas
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const target = document.getElementById(this.getAttribute('href').slice(1));
     if (target) {
+      e.preventDefault();
       target.scrollIntoView({
         behavior: 'smooth'
       });
     }
     // Cerrar menú móvil si está abierto
-    navbar.classList.remove('active');
+    if (menu) menu.checked = false;
   });
 });
