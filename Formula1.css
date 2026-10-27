@@ -188,7 +188,3 @@ footer {
     display: flex;
   }
 }
-/* Para mostrar navbar en móviles si está activo */
-.navbar.active ul {
-  display: flex !important;
-}
